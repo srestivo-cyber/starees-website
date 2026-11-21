@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact | SR Insurance Brokerage</title>
+<meta name="description" content="Phone, fax, email and mailing address for the office, and a link to book a time with Sal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+ <a class="logo" href="../index.html" aria-label="SR Insurance Brokerage home"><span class="mark">SR</span><span><b>SR Insurance Brokerage</b><small>Long Island, New York</small></span></a>
+ <nav class="main" id="nav"><a href="../index.html">Home</a><a href="../what-we-do/index.html">What we do</a><a href="../claims/index.html">Claims</a><a href="../about/index.html">About</a><a href="../contact/index.html" aria-current=page>Contact</a></nav>
+ <button class="menu" type="button" aria-controls="nav" aria-expanded="false">Menu</button>
+ <a class="btn call" href="tel:+16312234600">Call (631) 223-4600</a>
+</div></header>
+<main>
+<section class="phead"><div class="wrap"><h1>Reach the office.</h1>
+ <p class="lead">For a new employer group, a policy question or a claim you want to talk through.</p></div></section>
+
+<section class="band" style="padding-top:12px"><div class="wrap contact">
+ <div>
+  <div class="box"><dl class="rows">
+   <dt>Phone</dt><dd><a href="tel:+16312234600">(631) 223-4600</a></dd>
+   <dt>Fax</dt><dd>(631) 223-7722</dd>
+   <dt>Email</dt><dd><a href="mailto:srestivo@starees.com">srestivo@starees.com</a></dd>
+   <dt>Mail</dt><dd>248 Route 25A #3009, East Setauket, NY 11733</dd>
+  </dl></div>
+  <div class="box"><h3 style="color:var(--blue)">Pick a time with Sal</h3><p>Choose a time that works for you on Sal's calendar.</p><a class="btn" href="https://calendly.com/srestivo/new-meeting">Open Sal's calendar</a></div>
+ </div>
+ <form class="formcard" id="cform" novalidate>
+  <h3 style="color:var(--blue)">Write us a note</h3>
+  <label class="f" for="cn"><span>Your name</span><input id="cn" autocomplete="name"></label>
+  <label class="f" for="cp"><span>Best phone number</span><input id="cp" type="tel" autocomplete="tel"></label>
+  <label class="f" for="ct"><span>What it's about</span><select id="ct"><option>Benefits for my employees</option><option>A claim</option><option>A question about my policy</option><option>Life insurance</option><option>Something else</option></select></label>
+  <label class="f" for="cm"><span>Your note</span><textarea id="cm"></textarea></label>
+  <div class="acts"><button class="btn" type="submit">Write my note</button></div>
+  <p class="msg" id="cmsg" role="status"></p>
+  <div class="out" id="cout"><b>Your note, ready to send to srestivo@starees.com</b><pre id="ctext"></pre>
+   <div class="acts" style="margin-top:0"><button class="btn" type="button" id="ccopy">Copy it</button><a class="btn ghost" id="cmail" href="mailto:srestivo@starees.com">Open in email</a></div></div>
+  <p class="fine" style="margin-top:12px">Nothing is sent from this page.</p>
+ </form>
+</div></section>
+</main>
+<footer><div class="wrap">
+ <div class="cols">
+  <div><h4>SR Insurance Brokerage</h4><p>Independent benefits brokerage for 25 years, centered on New York and the Northeast, with clients across the United States.</p><p>248 Route 25A #3009, East Setauket, NY 11733<br>Phone (631) 223-4600<br>Fax (631) 223-7722</p></div>
+  <div><h4>For employers</h4><a href="../what-we-do/index.html">What we do</a><a href="../what-we-do/index.html#coverage">Coverage we offer</a><a href="../what-we-do/index.html#brochures">Request brochures</a><a href="https://calendly.com/srestivo/new-meeting">Book a time with Sal</a></div>
+  <div><h4>For policyholders</h4><a href="../claims/index.html">Start a claim</a><a href="../claims/index.html#wellness">Wellness benefit</a><a href="../claims/index.html#questions">Common questions</a><a href="../contact/index.html">Contact the office</a></div>
+  <div><h4>Legal</h4><a href="../terms-conditions/index.html#TandC">Terms &amp; Conditions</a><a href="../terms-conditions/index.html#Privacy_Policy">Privacy Policy</a><a href="../terms-conditions/index.html#sms">Text message terms</a><a href="../email-confidentiality/index.html">Email Confidentiality</a>
+   <p class="sms">Text messages: reply <b>STOP</b> to opt out or <b>HELP</b> for help. Message and data rates may apply. See our <a href="../terms-conditions/index.html#sms">Terms</a>.</p></div>
+ </div>
+ <div class="legalline">© 2026 Sal Restivo Insurance Brokerage Corp. All rights reserved. Insurance products are offered through and underwritten by the issuing insurance companies. Coverage, benefits, limitations and availability vary by carrier, plan and state; see the policy or brochure for details. Carrier names identify the companies we place coverage with and do not imply endorsement. Photos: Unsplash.</div>
+</div></footer>
+<script>
+{
+const b=document.querySelector('.menu'),n=document.getElementById('nav');
+b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+
+const v=id=>document.getElementById(id).value.trim();
+document.getElementById('cform').addEventListener('submit',e=>{e.preventDefault();
+ const m=document.getElementById('cmsg');
+ if(!v('cn')||!v('cm')){m.textContent='Add your name and a short note first.';return;}
+ m.textContent='';
+ const subj=v('ct')+': '+v('cn');
+ const body=v('cm')+'\n\nName: '+v('cn')+'\nPhone: '+(v('cp')||'(not given)');
+ document.getElementById('ctext').textContent='Subject: '+subj+'\n\n'+body;
+ document.getElementById('cmail').href='mailto:srestivo@starees.com?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+ document.getElementById('cout').classList.add('show');
+});
+document.getElementById('ccopy').addEventListener('click',async e=>{
+ try{await navigator.clipboard.writeText(document.getElementById('ctext').textContent);e.target.textContent='Copied';}
+ catch(err){e.target.textContent='Select the text above to copy';}
+});
+}
+</script>
+</body>
+</html>
